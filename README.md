@@ -1,1 +1,2 @@
-# praktikum_AI
+# kecerdasanbuatan
+Modul Praktikum Kecerdasan Buatan
