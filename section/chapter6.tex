@@ -71,8 +71,21 @@ Please tell more about conclusion and how to the next work of this study.
 \subsection{Praktek Program}
 \begin{enumerate}
 \item Jelaskan isi dari data GTZAN Genre Collection dan data dari freesound. Buat kode program untuk meload data tersebut untuk digunakan pada MFCC.
+\subitem Isi dari data GTZAN Genre Collection itu isinya berupa data musik yang sudah di folderkan berdasarkan genre lagunya (dikelompokkan) dengan ekstensi .au yang akan kita lakukan proses MFCC. Sedangakan freesound hanya untuk 1 lagu saja dengan ekstensi .wav.
+\lstinputlisting[firstline=1, lastline=2]{src/Jazz.py}
+\subitem Code pada baris pertama yaitu Filename jazz merupakan variabel yang berisikan direktori dari file yang dituju, pada code ini digunakan file audio dari genre jazz.
+\subitem Code pada baris kedua yaitu Membuat variabel X jazz dan sr jazz yang digunakan untuk meload file dari variabel filename jazz menggunakan librari Librosa dengan durasi 10, yang nantinya akan digunakan pada Mfcc.
 \item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari display mfcc() .
+\lstinputlisting[firstline=42, lastline=42]{src/Genreidentifier.py}
+\subitem Pada kode tersebut menjelaskan display\_mfcc untuk menampilkan vektorisasi dari sebuah suara yang akan menampilkan Plot dan Bar dari inputan code dan file suara hiphop.00028.au.
 \item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari extract features song(). Jelaskan juga mengapa yang diambil 25.000 baris pertama?
+\lstinputlisting[firstline=42, lastline=42]{src/Genreidentifier.py}
+\begin{itemize}
+\item Pada kode baris pertama berfungsi untuk memuat inputan. 
+\item Pada kode baris kedua itu akan memuat data inputan dengan menggunakan librosa.
+\item Kemudian pada parameter inputan yaitu y untuk membuat sebuah fitur pada mfcc.
+\item Selanjutnya me-return menjadi array dan akan mengambil 25000 data saja dari hasil vektorisasi dalam 1 lagu yang sudah di display\_mfcc.  
+\end{itemize}
 \item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari generate features and labels().
 \item Jelaskan dengan kata dan praktek kenapa penggunaan fungsi generate features and labels() sangat lama ketika meload dataset genre.
 \item Jelaskan kenapa harus dilakukan pemisahan data training dan data set sebesar 80 persen?
