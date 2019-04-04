@@ -125,3 +125,15 @@ print("Loss: %.4f, accuracy: %.4f" % (loss, acc))
 
 # In[3]: fitur ektraksi no 11
 model.predict(test_input[:1])
+
+# Error Yang Di Dapat Merupakan Modul error dimana belum adanya module tersebut
+
+ModuleNotFoundError: No Module named 'keras.models'
+
+# Cara penanganannya adalah install modul keras 
+# dengan perintah seperti berikut
+
+#dengan pip
+pip install keras
+#dengan conda
+conda install keras
