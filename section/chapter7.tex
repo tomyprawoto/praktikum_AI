@@ -187,25 +187,266 @@ metrics=[ 'accuracy '])
 	\caption{In[6]}
 	\label{c7_13}
 \end{figure}
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
-\item
+\item Jelaskan kode program pada blok \# In[7]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=52, lastline=54, caption=Kode Program 7, label={7}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 7, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Variabel onehot\_encoder akan memanggil fungsi OneHotEncoder dimana tidak berisikan matriks sparse.
+\item Pada variabel integer\_encoded akan diubah bentuknya dimana setiap nilai integer akan direpresentasikan sebagai vektor binari dengan nilai 0 kecuali index dari integer tersebut ditandai dengan 1.
+\item Melakukan fit untuk one hot encoder kedalam integer\_encoder.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_14}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/14.JPG}}
+	\caption{In[7]}
+	\label{c7_14}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[8]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=57, lastline=63, caption=Kode Program 8, label={8}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 8, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Variabel train\_output\_int  akan mengubah data dari train\_output menjadi LabeEncoder
+\item Dimana pada train\_output setelah diubah labelnya menjadi integer dilakukan one hot encoding diambil dari train\_output\_int dan menggunakan .reshape untuk memberikan bentuk baru ke array tanpa mengubah datanya dengan keterangan jika index dari integer tersebut ditandai dengan 1 dan sisanya yang bukan nol.
+\item Variabel test\_output\_int  akan mengubah data dari test\_output menjadi LabeEncoder
+\item Dimana pada train\_output setelah diubah labelnya menjadi integer dilakukan one hot encoding diambil dari test\_output\_int dan menggunakan .reshape untuk memberikan bentuk baru ke array tanpa mengubah datanya dengan keterangan jika index dari integer tersebut ditandai dengan 1 dan sisanya yang bukan nol.
+\item Variabel num\_classes akan menampilakn jumlah data dari classes yang telah dilakukan label encoder
+\item Menampilkan tulisan "Number of classes : \%d dmana mengembalikan nilai integer dari num\_classes.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_15}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/15.JPG}}
+	\caption{In[8]}
+	\label{c7_15}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[9]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=67, lastline=69, caption=Kode Program 9, label={9}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 9, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Impor Sequential dari model pada librari Keras.
+\item Impor Dense, Dropout, Flatten dari modul Layers pada librari Keras.
+\item Impor Conv2D, MaxPooling2D dari modul Layers pada librari Keras.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_16}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/16.JPG}}
+	\caption{In[9]}
+	\label{c7_16}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[10]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=71, lastline=85, caption=Kode Program 10, label={10}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 10, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Melakukan pemodelan Sequential.
+\item Menambahkan Konvolusi 2D dengan 32 filter konvolusi masing-masing berukuran 3x3 dengan algoritam activation relu dengan data dari train\_input mulai dari baris nol.
+\item Menambahkan Max Pooling dengan matriks 2x2.
+\item Dilakukan lagi penambahkan Konvolusi 2D dengan 32 filter konvolusi masing-masing berukuran 3x3 dengan algoritam activation relu.
+\item Menambahkan lagi Max Pooling dengan matriks 2x2.
+\item Mendefinisikan inputan dengan 1024 neuron dan menggunakan algoritma tanh untuk activationnya.
+\item Dropout terdiri dari pengaturan secara acak tingkat pecahan unit input ke 0 pada setiap pembaruan selama waktu pelatihan, yang membantu mencegah overfitting sebesar 50\% .
+\item Untuk output layer menggunakan data dari variabel num\_classes dengan fugsi activationnya softmax.
+\item Mengonfigurasi proses pembelajaran, yang dilakukan melalui metode compile,sebelum melatih suatu model.
+\item Menampilkan atau mencetak representasi ringkasan model yang telah dibuat.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_17}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/17.JPG}}
+	\caption{In[10]}
+	\label{c7_17}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[11]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=89, lastline=90, caption=Kode Program 11, label={11}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 11, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Impor Modul Callbacks dari Librari Keras.
+\item Variabel callback mendefinisikan Callback ini untuk menulis log untuk TensorBoard, yang memungkinkan Anda untuk memvisualisasikan grafik dinamis dari pelatihan dan metrik pengujian Anda, serta histogram aktivasi untuk berbagai lapisan dalam model Anda.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_18}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/18.JPG}}
+	\caption{In[11]}
+	\label{c7_18}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[12]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=93, lastline=102, caption=Kode Program 12, label={12}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 12, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Melakukan fit model dengan 32 ukuran subset dari sampel pelatihan Anda
+\item Epoch sebanyak 10 kali
+\item Vebrose=2 maksudnya menampilkan nomor dari epoch yang sedang berjalan atau yang sudah dijalankan.
+\item Validasi plit sebanayk 20\% sebagai fraksi data pelatihan untuk digunakan sebagai data validasi.
+\item Menggunakan TensorBoard sebagai callback untuk diterapkan selama pelatihan dan validasi.
+\item Variabel score mengembalikan nilai evaluate untuk menampilkan data lost dan data accuracy dari test
+\item Menampilkan data loss dengan menghitung jumlah kemunculan nol .
+\item Menampilkan data accuracy dengan menghitung jumlah kemunculan 1.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_19}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/19.JPG}}
+	\caption{In[12]}
+	\label{c7_19}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[13]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=106, lastline=137, caption=Kode Program 13, label={13}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 13, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item impor modul time dari python anaconda
+\item Variabel result berisikan array kosong.
+\item Menggunakan convolution 2D yang dimana akan memiliki 1 atau 2 layer.
+\item Mendefinisikan dense\_size dengan ukuran 128, 256, 512, 1024, 2048
+\item Mendefinsikan drop\_out dengan 0, 25\%, 50\%, dan 75\%
+\item Melakukan pemodelan Sequential
+\item Jika ini adalah layer pertama, kita perlu memasukkan bentuk input.
+\item Kalau tidak kita hanya akan menambahkan layer.
+\item Kemudian, setelah menambahkan layer konvolusi, kita akan melakukan hal yang sama dengan max pooling.
+\item  Lalu, kita akan meratakan atau flatten dan menambahkandense size ukuran apa pun yang berasal dari dense\_size. Dimana akan selalu menggunakan algoritma tanh
+\item Jika dropout digunakan, kita akan menambahkan layer dropout. Menyebut dropout ini berarti, katakanlah 50\%, bahwa setiap kali ia memperbarui bobot setelah setiap batch, ada peluang 50\% untuk setiap bobot yang tidak akan diperbarui
+\item menempatkan ini di antara dua lapisan padat untuk dihidupkan dari melindunginya dari overfitting.
+\item  Lapisan terakhir akan selalu menjadi jumlah kelas karena itu harus, dan menggunakan softmax. Itu dikompilasi dengan cara yang sama.
+\item Atur direktori log yang berbeda untuk TensorBoard sehingga dapat membedakan konfigurasi yang berbeda.
+\item Variabel start akan memanggil modul time atau waktu
+\item Melakukan fit atau compile 
+\item MElakukan scoring dengan .evaluate yang akan menampilkan data loss dan accuracy dari model
+\item end merupakan variabel untuk melihat waktu akhir pada saat pemodelan berhasil dilakukan.
+\item Menampilkan hasil dari run skrip diatas
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_20}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/20.JPG}}
+	\caption{In[13]}
+	\label{c7_20}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[14]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=141, lastline=151, caption=Kode Program 14, label={14}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 14, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Melakukan pemodelan Sequential
+\item Untuk layer pertama, Menambahkan Convolutio 2D dengan dmensi 32, dan ukuran matriks 3x3 dengan function aktivasi yang digunakan yaitu relu dan menampilkan input\_shape
+\item Dilakukan Max Pooling 2D dengan ukuran matriks 2x2
+\item Untuk layer kedua, melakukan Convolusi lagi dengan kriteria yang sama tanpa menambahkan input, ini dilakukan untuk mendapatkan data yang terbaik
+\item Flatten digubakan ntuk meratakan inputan
+\item Menambahkan dense input sebanyak 128 neuron dengan menggunakan function aktivasi tanh.
+\item Dropout sebanyak 50\% untuk menghindari overfitting
+\item Menambahkan dense pada model untuk output dimana layer ini akan menjadi jumlah dari class yang ada.
+\item Mengcompile model yang didefinisikan diatas
+\item Menampilkan ringkasan dari pemodelan yang dilakukan
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_21}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/21.JPG}}
+	\caption{In[14]}
+	\label{c7_21}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[15]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=153, lastline=155, caption=Kode Program 15, label={15}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 15, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Melakukan fit dengan join data train dan test agar dapat dilakukan pelatihan untuk jaringan pada smeua data yang dimiliki.
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_22}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/22.JPG}}
+	\caption{In[15]}
+	\label{c7_22}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[16]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=158, lastline=158, caption=Kode Program 16, label={16}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 16, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Menyimpan atau save model yang telah di latih dengan nama mathsymbols.model 
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_23}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/23.JPG}}
+	\caption{In[16]}
+	\label{c7_23}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[17]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=161, lastline=161, caption=Kode Program 17, label={17}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 17, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Simpan label enkoder (untuk membalikkan one-hot encoder) dengan nama classes.npy
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_24}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/24.JPG}}
+	\caption{In[17]}
+	\label{c7_24}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[18]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=167, lastline=169, caption=Kode Program 18, label={18}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 18, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Impor models dari librari Keras
+\item Variabel model2 akan memanggil model yang telah disave tadi 
+\item Menampilkan ringkasan dari hasil pemodelan
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_25}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/25.JPG}}
+	\caption{In[18]}
+	\label{c7_25}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[19]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=172, lastline=184, caption=Kode Program 19, label={19}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 19, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Memanggil fungsi LabelEncoder
+\item Variabel label\_encoder akan memanggil class yang disave sebelumnya.
+\item Function Predict akan mengubah gambar kedalam bentuk array
+\item Variabel prediction akan melakukan prediksi untuk model2 dengan reshape variabel newimg dengan bentukarray 4D.
+\item Variabel inverted akan mencari nilai tertinggi output dari hasil prediksi tadi
+\item Menampilkan hasil dari variabel prediction dan inverted
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_26}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/26.JPG}}
+	\caption{In[19]}
+	\label{c7_26}
+\end{figure}
+\item Jelaskan kode program pada blok \# In[20]
+\par Berikut adalah kode program yang digunakan :
+\lstinputlisting[firstline=187, lastline=191, caption=Kode Program 20, label={20}]{src/MathSymbols.py}
+\par Dari kode listing pada kode program 20, dapat dijelaskan seperti berikut :
+\begin{itemize}
+\item Melakukan prediksi dari pelatihan dari gambar v2-00010.png
+\item Melakukan prediksi dari pelatihan dari gambar v2-00500.png
+\item Melakukan prediksi dari pelatihan dari gambar v2-00700.png
+\end{itemize}
+\par Sehingga dari kode program tersebut bila dijalankan, maka menghasilkan seperti pada gambar \ref{c7_27}.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/27.JPG}}
+	\caption{In[20]}
+	\label{c7_27}
+\end{figure}
 \end{enumerate}
 
 \subsection{Penanganan Eror}
 \begin{enumerate}
 \item skrinsut error
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/huda/chapter7/eror.JPG}}
+	\caption{Eror}
+	\label{c7_28}
+\end{figure}
 \item Tuliskan kode eror dan jenis errornya
+\subitem Eror tersebut merupakan eror yang terjadi dan membuat kita tidak dapat mengakses dan menggunakan kernel atau konsol pada spyder.
 \item Solusi pemecahan masalah error tersebut
+\begin{itemize}
+\item Tutup spyder yang sedang dijalankan
+\item Kemudian buka kembali spyder
+\item maka eror pada kernel tersebut akan hilang dan kembali stabil agar bisa mengakses konsol tersebut.
+\end{itemize}
 \end{enumerate}
